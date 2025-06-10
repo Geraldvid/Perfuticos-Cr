@@ -25,6 +25,12 @@
 .oculto {
     display: none;
 }
+.movil {
+    display: none;
+}
+.tablet {
+    display: none;
+}
 .producto-card:hover {
     transform: scale(1.02);
 }
@@ -160,19 +166,15 @@
     .producto-card {
         flex: 1 1 calc(33.33% - 16px);
     }
-    .tablet{
-        display: none;
-    }
+   
 }
 
 /* Móvil grande */
 @media (max-width: 768px) {
     .producto-card {
-        flex: 1 1 calc(50% - 16px);
+        flex: 1 1 100%;
     }
-    .movil{
-        display: none;
-    }
+    
 }
 /* Móvil pequeño */
 @media (max-width: 480px) {
@@ -183,8 +185,6 @@
     .producto-card img {
         max-height: 180px;
     }
-    .movil{
-        display: none;
-    }
+    
 }
 
