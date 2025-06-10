@@ -12,19 +12,38 @@ document.getElementById('casaPerfumera').addEventListener('change', function () 
     });
 });
 
- document.querySelectorAll('.ver-mas-btn').forEach(btn => {
-        btn.addEventListener('click', function () {
-            const section = btn.closest('.casa-perfumera');
-            const ocultos = section.querySelectorAll('.producto-card.oculto');
-            const mostrar = btn.innerText === 'Ver más';
+document.querySelectorAll('.ver-mas-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+        const section = btn.closest('.casa-perfumera');
+        const cards = section.querySelectorAll('.producto-card');
+        const mostrar = btn.innerText === 'Ver más';
 
-            ocultos.forEach(card => {
-                card.style.display = mostrar ? 'block' : 'none';
+        if (mostrar) {
+            // Mostrar todos
+            cards.forEach(card => card.style.display = 'block');
+            btn.innerText = 'Ver menos';
+        } else {
+            // Ocultar según resolución
+            cards.forEach((card, index) => {
+                card.style.display = 'none'; // Ocultar todos primero
             });
 
-            btn.innerText = mostrar ? 'Ver menos' : 'Ver más';
-        });
+            let cantidadVisible = 4; // PC por defecto
+
+            if (window.innerWidth <= 768) {
+                cantidadVisible = 2; // Móvil
+            } else if (window.innerWidth <= 1024) {
+                cantidadVisible = 3; // Tablet
+            }
+
+            for (let i = 0; i < cantidadVisible; i++) {
+                if (cards[i]) cards[i].style.display = 'block';
+            }
+
+            btn.innerText = 'Ver más';
+        }
     });
+});
     function agregarAlCarrito(nombre, cantidad, precio) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
