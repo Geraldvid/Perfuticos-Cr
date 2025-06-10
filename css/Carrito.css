@@ -101,6 +101,8 @@ button:hover {
     font-size: 0.9rem;
     bottom: 0px;
     width: 100%;
+    position: absolute;
+    bottom: 0px;
     
 }
 
@@ -108,12 +110,12 @@ button:hover {
 .boton-guia {
   margin-top: 15px;
   padding: 10px 16px;
-  background-color: #333;
+  background-color: #343030;
   color: #fff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 40px;
   transition: background-color 0.2s ease;
 }
 
@@ -136,12 +138,13 @@ button:hover {
 /* Contenido del modal */
 .modal-contenido {
   background: white;
-  padding: 24px;
+  padding: 20px;
   border-radius: 12px;
-  width: 90%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 600px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
   position: relative;
+  font-size: 30px;
 }
 
 /* Botón cerrar */
@@ -149,7 +152,7 @@ button:hover {
   position: absolute;
   right: 16px;
   top: 12px;
-  font-size: 24px;
+  font-size: 50px;
   cursor: pointer;
   color: #888;
 }

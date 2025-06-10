@@ -35,6 +35,8 @@
     Vaciar Carrito
     </button>
 <div id="preview"></div>
+<!-- Botón para mostrar el formulario de ayuda -->
+<button onclick="mostrarFormulario()" class="boton-guia">¿Cómo generar y enviar la factura?</button>
 
 <button onclick="generarYPrevisualizar()">Generar factura como imagen</button>
 <button id="whatsappBtn" style="display:none;">Enviar por WhatsApp</button>
@@ -70,8 +72,7 @@ document.getElementById('whatsappBtn').addEventListener('click', () => {
     window.open(`https://wa.me/50663150332?text=${mensaje}`, '_blank');
 });
 </script>
-<!-- Botón para mostrar el formulario de ayuda -->
-<button onclick="mostrarFormulario()" class="boton-guia">¿Cómo generar y enviar la factura?</button>
+
 
    <a href="catalogo.html">Volver a Catalogo</a>
 
