@@ -1,0 +1,190 @@
+/* ... */
+
+.productos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.perfumes-visibles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.perfumes-ocultos {
+    display: none;
+}
+.header-casa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.oculto {
+    display: none;
+}
+.producto-card:hover {
+    transform: scale(1.02);
+}
+
+.producto-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    flex: 1 1 calc(25% - 16px);
+    margin-bottom: 16px;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    transition: transform 0.2s;
+    position: relative;
+
+    /* position: relative;
+    margin-bottom: 16px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+   box-sizing: border-box;
+    text-align: center;
+    flex: 1 1 calc(25% - 16px);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    border: 1px solid #ccc; */
+}
+
+.producto-card img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+}
+.filtro-casa {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.filtro-casa select {
+  padding: 5px;
+  font-size: 16px;
+}
+
+
+.botones-decant {
+    margin: 10px 0;
+}
+
+.mostrar-mas {
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mostrar-mas:hover {
+    background-color: #666;
+}
+
+/* Botones dentro del producto */
+.botones-decant button {
+    margin: 4px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.botones-decant button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Etiqueta NUEVO */
+.nuevo-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #00c851;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Overlay AGOTADO */
+.agotado-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 0, 0, 0.5);
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Agrega la clase "agotado" para que los botones se desactiven */
+.producto-card.agotado .botones-decant button {
+    pointer-events: none;
+    background-color: #ccc;
+}
+
+ a {
+  background-color: #1c1c1c;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 8px 4px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .producto-card {
+        flex: 1 1 calc(33.33% - 16px);
+    }
+    .tablet{
+        display: none;
+    }
+}
+
+/* Móvil grande */
+@media (max-width: 768px) {
+    .producto-card {
+        flex: 1 1 calc(50% - 16px);
+    }
+    .movil{
+        display: none;
+    }
+}
+/* Móvil pequeño */
+@media (max-width: 480px) {
+    .producto-card {
+        flex: 1 1 100%;
+    }
+
+    .producto-card img {
+        max-height: 180px;
+    }
+    .movil{
+        display: none;
+    }
+}
+

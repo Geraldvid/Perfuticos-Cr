@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="css/Carrito.css">
+</head>
+<body>
+    
+
+    <script>
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        const lista = document.getElementById('lista-carrito');
+        let total = 0;
+
+        carrito.forEach(item => {
+            const p = document.createElement('p');
+            p.textContent = `${item.nombre} - ${item.cantidad} - ¢${item.precio}`;
+            lista.appendChild(p);
+            total += parseInt(item.precio);
+        });
+
+        document.getElementById('total').textContent = `Total: ¢${total}`;
+    </script>
+    
+    
+
+<div id="factura">
+  <h2>Tu carrito de perfumes</h2>
+  <ul id="lista-productos"></ul>
+  <p id="total"></p>
+</div>
+
+<button onclick="localStorage.removeItem('carrito'); location.reload();">
+    Vaciar Carrito
+    </button>
+<div id="preview"></div>
+
+<button onclick="generarYPrevisualizar()">Generar factura como imagen</button>
+<button id="whatsappBtn" style="display:none;">Enviar por WhatsApp</button>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+function generarYPrevisualizar() {
+    const factura = document.getElementById('factura');
+
+    html2canvas(factura).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+
+        // Mostrar previsualización
+        const previewDiv = document.getElementById('preview');
+        previewDiv.innerHTML = '';
+        previewDiv.appendChild(canvas);
+
+        // Crear botón de descarga
+        let link = document.createElement('a');
+        link.download = 'factura.png';
+        link.href = imgData;
+        link.textContent = 'Descargar imagen';
+        link.className = 'boton-descarga';
+        previewDiv.appendChild(link);
+
+        // Mostrar botón de WhatsApp
+        document.getElementById('whatsappBtn').style.display = 'inline-block';
+    });
+}
+
+document.getElementById('whatsappBtn').addEventListener('click', () => {
+    const mensaje = encodeURIComponent("Hola, adjunto mi pedido. Ya descargué la imagen. ¿Dónde te la puedo enviar?");
+    window.open(`https://wa.me/50663150332?text=${mensaje}`, '_blank');
+});
+</script>
+<!-- Botón para mostrar el formulario de ayuda -->
+<button onclick="mostrarFormulario()" class="boton-guia">¿Cómo generar y enviar la factura?</button>
+
+   <a href="catalogo.html">Volver a Catalogo</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script type="module" src="js/script.js"></script>
+
+
+    
+
+<!-- Modal con los pasos -->
+<div id="modalGuia" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarFormulario()">&times;</span>
+    <h2>Pasos para generar y enviar tu factura</h2>
+    <ol>
+      <li>Revisa los productos en tu carrito.</li>
+      <li>Haz clic en <strong>"Generar factura como imagen"</strong>.</li>
+      <li>Se mostrará una previsualización y un botón para <strong>descargar</strong> la imagen.</li>
+      <li>Luego haz clic en <strong>"Enviar por WhatsApp"</strong> para compartirla.</li>
+    </ol>
+    <p>¡Asegúrate de tener WhatsApp Web abierto si estás desde computadora!</p>
+  </div>
+</div>
+<script>
+function mostrarFormulario() {
+    document.getElementById("modalGuia").style.display = "flex";
+}
+
+function cerrarFormulario() {
+    document.getElementById("modalGuia").style.display = "none";
+}
+
+// Cierra el modal al hacer clic fuera del contenido
+window.onclick = function(event) {
+    const modal = document.getElementById("modalGuia");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
