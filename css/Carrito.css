@@ -89,6 +89,17 @@ button:hover {
 .boton-descarga:hover {
   background-color: #0056b3;
 }
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1.2rem 0;
+    background-color: #222;
+    color: #ccc;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    bottom: 0px;
+    
+}
 
 /* Botón guía */
 .boton-guia {
