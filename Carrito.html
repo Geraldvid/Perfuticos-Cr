@@ -25,15 +25,17 @@
     
     
 
-<div id="factura">
+<div id="factura" class="factura-container">
   <h2>Tu carrito de perfumes</h2>
   <ul id="lista-productos"></ul>
-  <p id="total"></p>
+  <div id="detalle-costos" style="margin-top: 10px;"></div>
 </div>
 
-<button onclick="localStorage.removeItem('carrito'); location.reload();">
+
+<button id="btn-vaciar">
     Vaciar Carrito
     </button>
+   
 <div id="preview"></div>
 <!-- Botón para mostrar el formulario de ayuda -->
 <button onclick="mostrarFormulario()" class="boton-guia">¿Cómo generar y enviar la factura?</button>
@@ -68,9 +70,28 @@ function generarYPrevisualizar() {
 }
 
 document.getElementById('whatsappBtn').addEventListener('click', () => {
-    const mensaje = encodeURIComponent("Hola, adjunto mi pedido. A cual numero realizo el sinpe?");
+    const mensaje = encodeURIComponent(
+`Hola, adjunto mi pedido.
+
+Realizar el sinpe al siguiente numero 6180-9115 a nombre Lorenzo Vargas Guido
+
+Por favor llenar estos datos!!
+
+Nombre completo:
+Número de cédula:
+Número de celular:
+
+Provincia:
+Cantón:
+Distrito:
+
+Ubicación exacta:
+Por favor llenar estos datos!!`
+
+    );
     window.open(`https://wa.me/50663150332?text=${mensaje}`, '_blank');
 });
+
 </script>
 
 
@@ -89,9 +110,11 @@ document.getElementById('whatsappBtn').addEventListener('click', () => {
     <h2>Pasos para generar y enviar tu factura</h2>
     <ol>
       <li>Revisa los productos en tu carrito.</li>
+      <li>Verificar si tienes regalia. Si la tienes vuelve a catalogo y te saldra la opcción de reclamarla</li>
       <li>Haz clic en <strong>"Generar factura como imagen"</strong>.</li>
       <li>Se mostrará una previsualización y un botón para <strong>descargar</strong> la imagen.</li>
       <li>Luego haz clic en <strong>"Enviar por WhatsApp"</strong> para compartirla.</li>
+      <li>Y Por favor llenar estos datos que se solicita en el mensaje </li>
     </ol>
     <p>¡Asegúrate de tener WhatsApp Web abierto si estás desde computadora!</p>
   </div>
@@ -144,7 +167,4 @@ window.onclick = function(event) {
   </div>
 </footer>
 </body>
-
- 
-
 </html>

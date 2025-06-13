@@ -1008,7 +1008,7 @@
                         <button onclick="agregarAlCarrito('Ambassador Intense', '10ml','15000')">10ml</button>
                     </div>
                     <div class="precios">
-                        <p>2ml: ¢2000</p>
+                        <p>1ml: ¢2000</p>
                         <p>2ml: ¢3000</p>
                         <p>5ml: ¢8000</p>
                         <p>10ml: ¢15000</p>
@@ -2449,12 +2449,39 @@
 }
 </style>
 
+
+        
+
     </main>
-    
 
-    <script src="js/catalogo.js"></script>
+    <!-- Botón flotante de beneficios -->
+        <div id="envio-info-btn">📦</div>
 
-   
+        <div id="envio-info-box">
+        <h4>Beneficios por compra</h4>
+        <ul>
+            <li>💸 Compras > ₡20.000 → Envío ₡3.500</li>
+            <li>💵 ₡20.000 - ₡55.000 → Envío ₡2.000 + Regalía ₡3.000</li>
+            <li>🎁 ₡55.000+ → Envío Gratis + Regalía ₡6.000</li>
+        </ul>
+        </div>
+
+
+        <!-- Botón para seleccionar perfumes gratis -->
+        <button id="btn-regalia" style="display:flex;">🎁 Elegir perfumes gratis</button>
+
+        <!-- Modal -->
+        <div id="modal-regalia" class="modal-regalia">
+        <div class="modal-content">
+            <h3>Selecciona tus perfumes de regalía</h3>
+            <div id="lista-regalos"></div>
+            <p>Total usado: ₡<span id="regalo-total">0</span> / ₡<span id="limite-regalo">0</span></p>
+            <button id="confirmar-regalos" onclick="mostrarFactura();">Confirmar</button>
+            <button onclick="cerrarModal()">Cancelar</button>
+        </div>
+        </div>
+
+<script src="js/catalogo.js" defer></script>
 </body>
 <footer class="footer">
   <div class="footer-container">
