@@ -188,7 +188,7 @@ body {
 }
 
 #factura h2 {
-  font-size: 24px;
+  font-size: 34px;
   font-weight: 600;
   margin-bottom: 16px;
   color: #333;
@@ -205,14 +205,14 @@ body {
   border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 30px;
   color: #555;
 }
 
 #total {
   margin-top: 20px;
   text-align: right;
-  font-size: 22px;
+  font-size: 33px;
   font-weight: 600;
   color: #111;
 }
@@ -237,6 +237,9 @@ button:hover {
 
 #preview {
   margin-top: 20px;
+}
+#detalle-costos{
+  font-size: 35px;
 }
 
 .boton-descarga {
@@ -267,7 +270,7 @@ button:hover {
     bottom: 0px;
     width: 100%;
     
-    bottom: 0;
+    bottom: 0PX;
     
 }
 
